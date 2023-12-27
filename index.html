@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <input type="text" readonly class="display js-display" />
+    <div class="btn-container">
+      <button class="clear-btn" onclick="clearDisplay()">AC</button>
+      <button class="negative-or-positive">+/-</button>
+      <button class="add-two-zero" onclick="addTwoZeros()">%</button>
+      <button class="operator" onclick="addToDisplay(' / ')">/</button>
+      <button class="number" onclick="addToDisplay('7')">7</button>
+      <button class="number" onclick="addToDisplay('8')">8</button>
+      <button class="number" onclick="addToDisplay('9')">9</button>
+      <button class="operator" onclick="addToDisplay(' * ')">x</button>
+      <button class="number" onclick="addToDisplay('4')">4</button>
+      <button class="number" onclick="addToDisplay('5')">5</button>
+      <button class="number" onclick="addToDisplay('6')">6</button>
+      <button class="operator" onclick="addToDisplay(' - ')">-</button>
+      <button class="number" onclick="addToDisplay('1')">1</button>
+      <button class="number" onclick="addToDisplay('2')">2</button>
+      <button class="number" onclick="addToDisplay('3')">3</button>
+      <button class="operator" onclick="addToDisplay(' + ')">+</button>
+      <button class="number two-spaces" onclick="addToDisplay('0')">
+        <span>0</span>
+      </button>
+      <button class="number" onclick="addToDisplay('.')">.</button>
+      <button class="result operator" onclick="showResult()">=</button>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
