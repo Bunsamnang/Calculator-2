@@ -23,13 +23,16 @@ function changeACToC() {
 
 function addTwoZeros() {
   display.value = display.value === "" ? "" : Number(display.value) / 100;
+  saveToStorage();
 }
 
 function showResult() {
   try {
     display.value = eval(display.value);
+    saveToStorage();
   } catch (error) {
     display.value = "Error";
+    saveToStorage();
   }
 }
 
@@ -50,6 +53,7 @@ negativeOrPositive.addEventListener("click", () => {
     display.value = "-" + display.value;
     isNegative = true; // Update the state when it is positive
   }
+  saveToStorage();
 });
 
 // Let users access the calculator by pressing some keys of keyboard
@@ -105,7 +109,7 @@ document.body.addEventListener("keydown", (event) => {
     showResult();
   }
 
-  if (event.key === "c") {
+  if (event.key === "c" || event.key === "Backspace") {
     clearDisplay();
   }
 });
