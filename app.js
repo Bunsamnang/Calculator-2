@@ -1,8 +1,44 @@
+//input box (readonly)
 const display = document.querySelector(".js-display");
 display.value = localStorage.getItem("display") || "";
 
 display.innerHTML = display.value; // Get the value to display in the input element
 
+//When clicking operand btns
+const numBtn = document.querySelectorAll(".number");
+numBtn.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    addToDisplay(btn.innerHTML);
+  });
+});
+
+//When clicking operator btns
+const operatorBtn = document.querySelectorAll(".operator");
+operatorBtn.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    addToDisplay(` ${btn.innerHTML} `);
+  });
+});
+
+//When clicking clear btn
+const clearBtn = document.querySelector(".clear-btn");
+clearBtn.addEventListener("click", () => {
+  clearDisplay();
+});
+
+// When clicking add-two-zero btn
+const addTwoZerosBtn = document.querySelector(".add-two-zero");
+addTwoZerosBtn.addEventListener("click", () => {
+  addTwoZeros();
+});
+
+//When clicking =
+const result = document.querySelector(".result");
+result.addEventListener("click", () => {
+  showResult();
+});
+
+//
 function addToDisplay(input) {
   // Change the text of clear btn when calculating
   changeACToC();
@@ -53,63 +89,39 @@ negativeOrPositive.addEventListener("click", () => {
     display.value = "-" + display.value;
     isNegative = true; // Update the state when it is positive
   }
-  saveToStorage();
 });
 
 // Let users access the calculator by pressing some keys of keyboard
-document.body.addEventListener("keydown", (event) => {
-  changeACToC();
-  if (event.key === "0") {
-    display.value += "0";
-  }
-  if (event.key === "1") {
-    display.value += "1";
-  }
-  if (event.key === "2") {
-    display.value += "2";
-  }
-  if (event.key === "3") {
-    display.value += "3";
-  }
-  if (event.key === "4") {
-    display.value += "4";
-  }
-  if (event.key === "5") {
-    display.value += "5";
-  }
-  if (event.key === "6") {
-    display.value += "6";
-  }
-  if (event.key === "7") {
-    display.value += "7";
-  }
-  if (event.key === "8") {
-    display.value += "8";
-  }
-  if (event.key === "9") {
-    display.value += "9";
-  }
-  if (event.key === ".") {
-    display.value += ".";
-  }
-  if (event.key === "+") {
-    display.value += " + ";
-  }
-  if (event.key === "-") {
-    display.value += " - ";
-  }
-  if (event.key === "*") {
-    display.value += " * ";
-  }
-  if (event.key === "/") {
-    display.value += " / ";
-    console.log(event);
-  }
-  if (event.key === "=" || event.key === "Enter") {
-    showResult();
+document.addEventListener("keydown", (event) => {
+  const allowedKeys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+  if (allowedKeys.includes(event.key)) {
+    addToDisplay(event.key);
   }
 
-  if (event.key === "c" || event.key === "Backspace") {
-    clearDisplay();
+  switch (event.key) {
+    case "+":
+      addToDisplay(` + `);
+      break;
+    case "-":
+      addToDisplay(` - `);
+      break;
+    case "*":
+      addToDisplay(` * `);
+      break;
+    case "/":
+      addToDisplay(` / `);
+      break;
+
+    case "=":
+    case "Enter":
+      showResult();
+      break;
+    case "c":
+    case "Backspace":
+      clearDisplay();
+      break;
+    default:
+      break;
   }
 });
