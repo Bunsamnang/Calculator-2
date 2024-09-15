@@ -7,29 +7,29 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <h1>Calculator</h1>
+
     <input type="text" readonly class="display js-display" />
     <div class="btn-container">
-      <button class="clear-btn" onclick="clearDisplay()">AC</button>
+      <button class="clear-btn">AC</button>
       <button class="negative-or-positive">+/-</button>
-      <button class="add-two-zero" onclick="addTwoZeros()">%</button>
-      <button class="operator" onclick="addToDisplay(' / ')">/</button>
-      <button class="number" onclick="addToDisplay('7')">7</button>
-      <button class="number" onclick="addToDisplay('8')">8</button>
-      <button class="number" onclick="addToDisplay('9')">9</button>
-      <button class="operator" onclick="addToDisplay(' * ')">x</button>
-      <button class="number" onclick="addToDisplay('4')">4</button>
-      <button class="number" onclick="addToDisplay('5')">5</button>
-      <button class="number" onclick="addToDisplay('6')">6</button>
-      <button class="operator" onclick="addToDisplay(' - ')">-</button>
-      <button class="number" onclick="addToDisplay('1')">1</button>
-      <button class="number" onclick="addToDisplay('2')">2</button>
-      <button class="number" onclick="addToDisplay('3')">3</button>
-      <button class="operator" onclick="addToDisplay(' + ')">+</button>
-      <button class="number two-spaces" onclick="addToDisplay('0')">
-        <span>0</span>
-      </button>
-      <button class="number" onclick="addToDisplay('.')">.</button>
-      <button class="result operator" onclick="showResult()">=</button>
+      <button class="add-two-zero">%</button>
+      <button class="operator">/</button>
+      <button class="number">7</button>
+      <button class="number">8</button>
+      <button class="number">9</button>
+      <button class="operator">*</button>
+      <button class="number">4</button>
+      <button class="number">5</button>
+      <button class="number">6</button>
+      <button class="operator">-</button>
+      <button class="number">1</button>
+      <button class="number">2</button>
+      <button class="number">3</button>
+      <button class="operator">+</button>
+      <button class="number two-spaces">0</button>
+      <button class="number">.</button>
+      <button class="result">=</button>
     </div>
 
     <script src="app.js"></script>
